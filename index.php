@@ -8,9 +8,10 @@ Author: Kiran Dash
 Author URI: http://bgwebagency.com/
 */
 
-add_shortcode('twitter', function($atts){
+add_shortcode('twitter', function($atts, $content){
 	//echo should not be used in add shortcode. Please use return
 	if(!isset($atts['username'])) $atts['username'] = 'thekirandash';
-	return '<a href="http://twitter.com/'.$atts['username'].'">Follow me on twitter</a>';
+	if(empty($content)) $content = 'Follow me on twitter';
+	return '<a href="http://twitter.com/'.$atts['username'].'">'.$content.'</a>';
 });
 ?>
